@@ -1,11 +1,11 @@
 from elasticsearch import Elasticsearch, helpers
 import json
-
+import sys
 # Replace with the path to your actual JSON file
-json_file_path = 'path_to_your_json_file.json'
+json_file_path = sys.argv[1]
 
 # Replace with the actual index name you want to use in Elasticsearch
-index_name = 'your_index_name'
+index_name = 'wiki'
 
 # Connect to your Elasticsearch cluster
 es = Elasticsearch("http://localhost:9200")
