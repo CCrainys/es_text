@@ -46,3 +46,16 @@ response = es.search(index="wiki", body=query)
 print("Total hits:", response["hits"]["total"]["value"])
 print("Top search result with highlighting:")
 print(response["hits"]["hits"][0]["highlight"]["text"][0])
+
+
+query = {
+    "query": {
+        "match_phrase": {
+            "text": "Historically African-American Greek life.\nNational Pan-Hellenic Council."
+        }
+    }
+}
+
+response = es.search(index="wiki", body=query)
+print("Total hits:", response["hits"]["total"]["value"])
+print("Top search result:", response["hits"]["hits"][0]["_source"]["text"])
